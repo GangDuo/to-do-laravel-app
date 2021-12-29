@@ -49,4 +49,5 @@
     dateFormat: "Y/m/d",
     minDate: new Date()
   });
+</script>
 @endsection
