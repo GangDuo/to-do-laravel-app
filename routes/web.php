@@ -27,3 +27,9 @@ Route::post('/folders/{id}/tasks/{task_id}/edit', [TaskController::class, 'edit'
 
 Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');
 Route::post('/folders/create', [FolderController::class, 'create']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
