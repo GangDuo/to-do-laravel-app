@@ -46,7 +46,7 @@
                     <td>
                         <span class="label {{ $task->status_class }}">{{ $task->status_label }}</span>
                     </td>
-                    <td>{{ $task->formatted_due_date }}</td>
+                    <td>{{ $task->due_date_as_interval }}</td>
                     <td><a href="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task' => $task->id]) }}">編集</a></td>
                   </tr>
                 @endforeach

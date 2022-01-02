@@ -43,6 +43,15 @@ class Task extends Model
         return Carbon::createFromFormat('Y-m-d', $this->attributes['due_date'])->format('Y/m/d');
     }
 
+    public function getDueDateAsIntervalAttribute()
+    {
+        $date1 = new \DateTime('today');
+        $date2 = new \DateTime($this->attributes['due_date']);
+        $interval = $date1->diff($date2);
+        $prefix = $interval->invert === 1 ? '超過' : 'あと';
+        return $prefix . $interval->format(' %a 日');
+    }
+
     public function folder()
     {
         return $this->belongsTo(Folder::class);
